@@ -12,4 +12,4 @@ If it's working correctly it will create a `Wrapper.log` when the game runs with
 
 Required lib for compiling: https://github.com/Synthlight/Base-Dll-Proxy
 
-(Made for v1.17.02 on Steam.)
+(Made for v1.27.02 on Steam.)
