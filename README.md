@@ -9,3 +9,5 @@ If it's working correctly it will create a `Wrapper.log` when the game runs with
 2021-07-13 21:56:12	Remove Special Effect Max Constraints (inject address): 0x00007FF7FB660450
 2021-07-13 21:56:12	Remove Special Effect Max Constraints patched.
 ```
+
+Required lib for compiling: https://github.com/Synthlight/Base-Dll-Proxy
