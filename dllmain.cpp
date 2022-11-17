@@ -20,12 +20,12 @@ void DoInjection() {
 
 void RemoveSpecialEffectMaxConstraints() {
     auto moduleAddress = static_cast<BYTE*>((void*) GetModuleHandle(targetModule.c_str()));
-    auto targetAddress = moduleAddress + 0xF4E69B;
+    auto targetAddress = moduleAddress + 0xC37EC6;
     auto injectAddress = moduleAddress + 0x450; // Hijack a section that's all 0s.
 
     auto targetBytes = std::vector<BYTE> {
-        0xE8, 0xB0, 0x1D, 0x0B, 0xFF, // call nioh2.exe+450
-        0x90 // nop (Since we're replacing code that's 6 bytes.)
+        0xE8, 0x85, 0x85, 0x3C, 0xFF, // call nioh2.exe+450
+        0x90, 0x90 // Two nops (Since we're replacing code that's 7 bytes.)
     };
 
     auto injectBytes = std::vector<BYTE> {
@@ -34,8 +34,8 @@ void RemoveSpecialEffectMaxConstraints() {
         0x38, 0xC0, // cmp al,al
         0xC3, // ret
         // Original code:
-        0x89, 0x43, 0x04, // mov [rbx+04],eax
-        0x45, 0x84, 0xF6, // test r14l,r14l
+        0x44, 0x89, 0x4B, 0x04, // mov [rbx+04],r9d
+        0x40, 0x84, 0xED, // test bpl,bpl
         0xC3 // ret
     };
 
